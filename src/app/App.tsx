@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import maejanaínaFoto from "@/imports/image.png";
 
-const WHATSAPP_URL = "https://wa.me/5547999251909";
+const WHATSAPP_URL = "https://wa.me/5511962785182";
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current flex-shrink-0" aria-hidden="true">
@@ -125,7 +125,7 @@ export default function App() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1800&h=1000&fit=crop&auto=format')",
+              "url('https://images.unsplash.com/photo-1573466511070-d947365aa9f5?w=1800&h=1000&fit=crop&auto=format')",
           }}
           aria-hidden="true"
         />
@@ -213,88 +213,152 @@ export default function App() {
       </section>
 
       {/* ════════════════════════ SPECIAL OFFER ════════════════════════ */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="relative overflow-hidden">
+        {/* Deep background */}
         <div
           className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(135deg, #3d0010 0%, #5a0018 50%, #3d0010 100%)",
-          }}
+          style={{ background: "linear-gradient(135deg, #2a0009 0%, #5a0018 45%, #2a0009 100%)" }}
+          aria-hidden="true"
+        />
+        {/* Glowing center radial */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 70% 60% at 40% 50%, rgba(201,162,39,0.12) 0%, transparent 70%)" }}
           aria-hidden="true"
         />
         {/* dot pattern */}
         <div
-          className="absolute inset-0 opacity-10 pointer-events-none"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 2px 2px, #c9a227 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
+          className="absolute inset-0 opacity-[0.07] pointer-events-none"
+          style={{ backgroundImage: "radial-gradient(circle at 2px 2px, #c9a227 1px, transparent 0)", backgroundSize: "28px 28px" }}
           aria-hidden="true"
         />
-        <div className="absolute top-0 left-0 right-0 h-px bg-[#c9a227]/40" aria-hidden="true" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-[#c9a227]/40" aria-hidden="true" />
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c9a227]/70 to-transparent" aria-hidden="true" />
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#c9a227]/70 to-transparent" aria-hidden="true" />
 
-        <div className="relative z-10 max-w-2xl mx-auto px-4 text-center">
-          <div className="inline-block border border-[#c9a227]/60 px-5 py-2 mb-6">
-            <span
-              className="text-[#c9a227] tracking-[0.4em] uppercase text-xs"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Oferta Especial
-            </span>
+        <div className="relative z-10 max-w-6xl mx-auto px-4 py-16 sm:py-20">
+          {/* Top badge */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex items-center gap-3 bg-[#c9a227]/15 border border-[#c9a227]/50 px-6 py-2">
+              <span className="text-[#c9a227]">✦</span>
+              <span
+                className="text-[#c9a227] tracking-[0.4em] uppercase text-xs"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Oferta Especial por Tempo Limitado
+              </span>
+              <span className="text-[#c9a227]">✦</span>
+            </div>
           </div>
 
-          <h2
-            className="text-3xl sm:text-5xl text-[#f0dfc0] mb-4 leading-snug"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Amarração Amorosa
-            <br />
-            Completa
-          </h2>
+          {/* Main layout: content left + image right */}
+          <div className="grid lg:grid-cols-[1fr_340px] gap-10 items-center">
 
-          <GoldDivider />
+            {/* LEFT — offer content */}
+            <div>
+              <h2
+                className="text-4xl sm:text-5xl lg:text-6xl text-[#f0dfc0] mb-3 leading-tight"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Amarração Amorosa
+                <br />
+                <span className="text-[#c9a227]">Completa</span>
+              </h2>
 
-          <div className="mt-8 mb-8">
-            <p className="text-[#d4b896]/55 text-lg line-through mb-1">De: R$ 297,00</p>
-            <p className="text-[#d4b896] text-base mb-2">Por apenas</p>
-            <p
-              className="text-7xl sm:text-8xl text-[#c9a227]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              R$ 99,90
-            </p>
-          </div>
-
-          <div className="bg-black/25 border border-[#c9a227]/20 p-6 mb-8 max-w-sm mx-auto text-left">
-            <p
-              className="text-[#c9a227] text-xs tracking-widest uppercase mb-4"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Inclui:
-            </p>
-            {offerIncludes.map((item, i) => (
-              <div key={i} className="flex items-center gap-3 mb-3 last:mb-0">
-                <span className="text-[#c9a227] text-sm flex-shrink-0">✓</span>
-                <span className="text-[#d4b896] text-sm">{item}</span>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="h-px flex-1 bg-[#c9a227]/30" />
+                <span className="text-[#c9a227] text-lg">✦</span>
+                <div className="h-px flex-1 bg-[#c9a227]/30" />
               </div>
-            ))}
+
+              {/* Price block */}
+              <div className="flex items-end gap-6 mb-8 flex-wrap">
+                <div>
+                  <p className="text-[#d4b896]/50 text-base line-through mb-1">De R$ 297,00</p>
+                  <p className="text-[#d4b896] text-sm mb-1" style={{ fontFamily: "var(--font-display)" }}>Por apenas</p>
+                  <p
+                    className="text-7xl sm:text-8xl lg:text-9xl text-[#c9a227] leading-none"
+                    style={{
+                      fontFamily: "var(--font-deco)",
+                      fontWeight: 900,
+                      textShadow: "0 0 60px rgba(201,162,39,0.6), 0 0 120px rgba(201,162,39,0.25)",
+                      letterSpacing: "-0.02em",
+                    }}
+                  >
+                    R$ 99,90
+                  </p>
+                </div>
+                {/* Savings pill */}
+                <div className="bg-[#7a1028] border border-[#c9a227]/40 px-4 py-2 mb-2">
+                  <p className="text-[#c9a227] text-xs tracking-widest uppercase" style={{ fontFamily: "var(--font-display)" }}>Você economiza</p>
+                  <p className="text-[#f0dfc0] text-xl font-bold" style={{ fontFamily: "var(--font-display)" }}>R$ 197,10</p>
+                </div>
+              </div>
+
+              {/* Includes */}
+              <div className="grid sm:grid-cols-2 gap-3 mb-8">
+                {offerIncludes.map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 bg-black/20 border border-[#c9a227]/15 px-4 py-3">
+                    <span className="text-[#c9a227] text-base flex-shrink-0">✓</span>
+                    <span className="text-[#d4b896] text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 bg-[#c9a227] hover:bg-[#e0b82e] text-[#080206] font-bold tracking-widest uppercase text-sm px-8 py-5 transition-all duration-300 hover:shadow-2xl hover:shadow-[#c9a227]/40 hover:scale-105"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  ✦ Quero Aproveitar Agora
+                </a>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 bg-green-800 hover:bg-green-700 text-white font-semibold tracking-widest uppercase text-sm px-8 py-5 transition-all duration-300 hover:shadow-xl hover:shadow-green-800/40"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  <WhatsAppIcon />
+                  Falar Agora
+                </a>
+              </div>
+
+              <p className="text-[#d4b896]/45 text-xs mt-4 tracking-wide">
+                🔒 Sigilo total garantido · Início imediato · Atendimento pelo WhatsApp
+              </p>
+            </div>
+
+            {/* RIGHT — couple image */}
+            <div className="relative hidden lg:block">
+              {/* Gold glow behind image */}
+              <div
+                className="absolute -inset-3 opacity-40"
+                style={{ background: "radial-gradient(ellipse at center, #c9a227 0%, transparent 70%)", filter: "blur(24px)" }}
+                aria-hidden="true"
+              />
+              <div className="relative border-2 border-[#c9a227]/40 overflow-hidden" style={{ aspectRatio: "3/4" }}>
+                <img
+                  src="https://images.unsplash.com/photo-1548210612-9968def675bb?w=500&h=660&fit=crop&auto=format"
+                  alt="Casal apaixonado se beijando"
+                  className="w-full h-full object-cover"
+                />
+                {/* Warm overlay to blend with section */}
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "linear-gradient(180deg, rgba(42,0,9,0.1) 0%, rgba(42,0,9,0.5) 100%)" }}
+                />
+              </div>
+              {/* Corner ornaments */}
+              <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-[#c9a227]" />
+              <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-[#c9a227]" />
+              <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-[#c9a227]" />
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-[#c9a227]" />
+            </div>
           </div>
-
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#c9a227] hover:bg-[#e0b82e] text-[#080206] font-bold tracking-widest uppercase text-xs px-10 py-5 transition-all duration-300 hover:shadow-2xl hover:shadow-[#c9a227]/30 hover:scale-105"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            ✦ Quero Aproveitar Agora
-          </a>
-
-          <p className="text-[#d4b896]/50 text-xs mt-4">
-            Atendimento imediato via WhatsApp · Sigilo total garantido
-          </p>
         </div>
       </section>
 
